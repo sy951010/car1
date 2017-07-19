@@ -1,12 +1,4 @@
-var imgs=[];
-function imgload(){
-   for (i = 0; i < imgload.arguments.length; i++) {
-          imgs[i] = new Image()
-          imgs[i].src = imgload.arguments[i]
-        }
-    $('#mengceng').hide();  
-}
-imgload("img/pic3.png","img/left.png","img/right.png","img/pic1.png","img/pic2.png","img/rotate.png","img/car.png","img/arrow.png",
+var imgs=["img/pic3.png","img/left.png","img/right.png","img/pic1.png","img/pic2.png","img/rotate.png","img/car.png","img/arrow.png",
   "img/twotext.png","img/twocar.png","img/twopic1.png","img/twocircle.png","img/rotate1.png","img/bigcarlight.png",
   "img/hand.png","img/img/car/Rouge Flamme.0000.png",
 "img/img/car/Rouge Flamme.0001.png",
@@ -83,7 +75,30 @@ imgload("img/pic3.png","img/left.png","img/right.png","img/pic1.png","img/pic2.p
 ,"img/threetext.png","img/threetext1.png","img/threepic2s.png","img/suna.png","img/sunb.png","img/sunc.png",
 "img/sund.png","img/sun.png","img/hidden4.png","img/hidden1.png","img/hidden2.png","img/hidden3s.png","img/sevenpic1.png",
 "img/sevenpic2.png",
-"img/sevenpic3.png")
+"img/sevenpic3.png"];
+function imgload(){
+   for (i = 0; i < imgload.arguments.length; i++) {
+          imgs[i] = new Image()
+          imgs[i].src = imgload.arguments[i]
+        }
+    $('#mengceng').hide();  
+};
+var count=0;
+$.each(imgs, function(index, val) {
+  var img=new Image();
+  $(img).on('load', function() {
+    console.log(index);
+    if (count>=imgs.length-1) {
+      console.log('jiazaiwan');
+      $('#mengceng').hide();
+    }
+    count++;
+  });
+  $(img).attr({
+    src: val,
+  });
+});
+
  $.fn.extend({
     add_ani:function(effect,duration,delay){
         $(this).addClass('ani');
