@@ -87,9 +87,8 @@ var count=0;
 $.each(imgs, function(index, val) {
   var img=new Image();
   $(img).on('load', function() {
-    console.log(index);
+     $('#mengceng span').html(Math.round(count/imgs.length)+'%');
     if (count>=imgs.length-1) {
-      console.log('jiazaiwan');
       $('#mengceng').hide();
     }
     count++;
