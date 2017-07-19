@@ -76,18 +76,11 @@ var imgs=["img/pic3.png","img/left.png","img/right.png","img/pic1.png","img/pic2
 "img/sund.png","img/sun.png","img/hidden4.png","img/hidden1.png","img/hidden2.png","img/hidden3s.png","img/sevenpic1.png",
 "img/sevenpic2.png",
 "img/sevenpic3.png"];
-function imgload(){
-   for (i = 0; i < imgload.arguments.length; i++) {
-          imgs[i] = new Image()
-          imgs[i].src = imgload.arguments[i]
-        }
-    $('#mengceng').hide();  
-};
+
 var count=0;
 $.each(imgs, function(index, val) {
   var img=new Image();
   $(img).on('load', function() {
-     $('#mengceng span').html(Math.round(count/imgs.length)+'%');
     if (count>=imgs.length-1) {
       $('#mengceng').hide();
     }
